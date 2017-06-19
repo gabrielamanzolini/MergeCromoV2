@@ -25,6 +25,8 @@ import java.util.List;
 
 import javax.swing.ListModel;
 
+import model.Snp;
+
 /**
  *
  * @author gabriela
@@ -48,7 +50,18 @@ public class MergeCromo2 {
     	juntarFiles (arquivos, fileMerged);
     	
     
-    }
+    }  
+	
+	public ArrayList<Snp> comparaFile(String nome, int onda) {
+		Snp snp = new Snp();
+		if(nome==snp.getNome()){
+			snp.getOnda();
+			
+			
+		}
+		
+		return null;
+	}
 
 	private static void juntarFiles(File[] arquivos, File fileMerged) {
 		// TODO Auto-generated method stub

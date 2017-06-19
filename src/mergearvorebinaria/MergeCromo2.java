@@ -21,9 +21,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.ListModel;
+
+import javafx.animation.Interpolator;
+import model.Snp;
 
 /**
  *
@@ -48,21 +53,33 @@ public class MergeCromo2 {
     	juntarFiles (arquivos, fileMerged);
     	
     
-    }
+    }  
+	
+    /**
+     * 
+     * @param base - aqui recebe como parâmetro a base de dados que estará na memória
+     * @param snp - aqui recebe como parâmetro um snp - a fim de comparar com a base
+     * @return
+     */
+	public LinkedList<Snp> comparaFile(LinkedList<Snp> base, Snp snp) {
+		//Coloquei um iterator para percorrer a lista de snps
+		Iterator<Snp> it = base.iterator();
+		
+		while(it.hasNext()){
+			Snp snpBase = it.next(); //precisamos testar essa linha pra ver se está certa.
+			if (snpBase.getNome() == snp.getNome()){
+				snpBase.setOnda(snpBase.getOnda()+ snp.getOnda());
+			}
+		}
+		
+		return null;
+	}
 
 	private static void juntarFiles(File[] arquivos, File fileMerged) {
 		// TODO Auto-generated method stub
 		FileWriter fstream = null;
 		BufferedWriter out = null;
 		
-//    	BufferedReader readFiles = new BufferedReader(new FileReader(file1));
-//    	
-//    	int i = 0;
-//    	while (readFiles.ready()){
-//    		String linha = readFiles.readLine();
-//    		System.out.println(linha);
-//    		lista.add(linha.split("/t"));
-//    	}
 		
 		try{
 			fstream = new FileWriter(fileMerged, true);

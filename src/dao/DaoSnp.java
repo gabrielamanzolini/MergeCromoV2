@@ -5,15 +5,17 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+
 import model.Snp;
 
 public class DaoSnp {
 
-	public ArrayList<Snp> readFile(String fileName, int onda){
+	public LinkedList<Snp> readFile(String fileName, int onda){
 		try {
 			File file = new File(fileName);
 			BufferedReader br = new BufferedReader(new FileReader(file));
-			ArrayList<Snp> list = new ArrayList<>();
+			LinkedList<Snp> list = new LinkedList<>();
 			
 			while(br.ready()){
 				String line = br.readLine();

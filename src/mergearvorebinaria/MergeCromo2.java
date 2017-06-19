@@ -62,8 +62,6 @@ public class MergeCromo2 {
 //    		String linha = readFiles.readLine();
 //    		System.out.println(linha);
 //    		lista.add(linha.split("/t"));
-		
-		
 //    	}
 		
 		try{

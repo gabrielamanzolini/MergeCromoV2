@@ -48,8 +48,7 @@ public class DaoSnp {
 	}
 	
 	public ArrayList<Snp> comparaFile(String nome, int onda) {
-		
-		
+		.
 		
 		
 		return null;

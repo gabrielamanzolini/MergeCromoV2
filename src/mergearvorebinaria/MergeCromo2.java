@@ -28,7 +28,7 @@ import javax.swing.ListModel;
 /**
  *
  * @author gabriela
- *///
+ */
 public class MergeCromo2 {
 
     public static void main(String[] args) throws IOException {
@@ -62,6 +62,8 @@ public class MergeCromo2 {
 //    		String linha = readFiles.readLine();
 //    		System.out.println(linha);
 //    		lista.add(linha.split("/t"));
+		
+		
 //    	}
 		
 		try{

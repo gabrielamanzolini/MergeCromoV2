@@ -7,6 +7,8 @@ public class Snp {
 	private int onda;
 	private String nome;
 	private String posicao;
+	private String marcador1;
+	private String marcador2;
 	private List<Double> probab;
 	
 	public String getNome() {
@@ -20,6 +22,18 @@ public class Snp {
 	}
 	public void setPosicao(String posicao) {
 		this.posicao = posicao;
+	}
+	public String getMarcador1() {
+		return marcador1;
+	}
+	public void setMarcador1(String marcador1) {
+		this.marcador1 = marcador1;
+	}
+	public String getMarcador2() {
+		return marcador2;
+	}
+	public void setMarcador2(String marcador2) {
+		this.marcador2 = marcador2;
 	}
 	public List<Double> getProbab(){
 		return probab;

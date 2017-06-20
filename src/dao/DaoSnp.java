@@ -50,6 +50,7 @@ public class DaoSnp {
 			return null;
 		}		
 	}
+<<<<<<< HEAD
 	
 	public void writeFile(List<Snp> lista, String fileWriterName){
 		try {
@@ -71,5 +72,10 @@ public class DaoSnp {
 			e.printStackTrace();
 		}
 	}
+=======
+
+	
+	
+>>>>>>> refs/remotes/origin/master
 	
 }

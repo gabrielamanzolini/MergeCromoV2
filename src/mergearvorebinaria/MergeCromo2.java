@@ -30,6 +30,8 @@ import javax.swing.ListModel;
 import javafx.animation.Interpolator;
 import model.Snp;
 
+import model.Snp;
+
 /**
  *
  * @author gabriela
@@ -55,6 +57,7 @@ public class MergeCromo2 {
     
     }  
 	
+<<<<<<< HEAD
     /**
      * 
      * @param base - aqui recebe como parâmetro a base de dados que estará na memória
@@ -70,6 +73,14 @@ public class MergeCromo2 {
 			if (snpBase.getNome() == snp.getNome()){
 				snpBase.setOnda(snpBase.getOnda()+ snp.getOnda());
 			}
+=======
+	public ArrayList<Snp> comparaFile(String nome, int onda) {
+		Snp snp = new Snp();
+		if(nome==snp.getNome()){
+			snp.getOnda();
+			
+			
+>>>>>>> refs/remotes/origin/master
 		}
 		
 		return null;

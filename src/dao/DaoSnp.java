@@ -1,11 +1,15 @@
 package dao;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 import model.Snp;
 
@@ -38,7 +42,7 @@ public class DaoSnp {
 				//adicionando o obj snp na lista
 				list.add(snp);
 			}
-			
+			br.close();
 			return list;
 		} catch (NumberFormatException | IOException e) {
 			// TODO Auto-generated catch block
@@ -46,8 +50,26 @@ public class DaoSnp {
 			return null;
 		}		
 	}
-
 	
-	
+	public void writeFile(List<Snp> lista, String fileWriterName){
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(fileWriterName));
+			
+			Iterator<Snp> it = lista.listIterator();
+			
+			while(it.hasNext()){
+				Snp snp = it.next();
+				String line = new String();
+				line = snp.getNome() + "/t" + snp.getOnda() + "/t" + snp.getPosicao() + "/t" + snp.getMarcador1() + "/t" + snp.getMarcador2();
+				
+				//terminar de colocar as probalilidades para escrever no arquivo
+				
+				bw.write(line);
+			}
+			bw.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

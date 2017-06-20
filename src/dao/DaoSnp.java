@@ -60,7 +60,7 @@ public class DaoSnp {
 			while(it.hasNext()){
 				Snp snp = it.next();
 				String line = new String();
-				line = snp.getNome() + "/t" + snp.getOnda() "/t" + snp.getPosicao() + "/t" + snp.getMarcador1() + "/t" + snp.getMarcador2();
+				line = snp.getNome() + "/t" + snp.getOnda() + "/t" + snp.getPosicao() + "/t" + snp.getMarcador1() + "/t" + snp.getMarcador2();
 				
 				//terminar de colocar as probalilidades para escrever no arquivo
 				

@@ -15,6 +15,12 @@ import model.Snp;
 
 public class DaoSnp {
 
+	/**
+	 * Método que lê um arquivo de probabilidades
+	 * @param fileName
+	 * @param onda
+	 * @return LinkedList com os dados de um arquivo
+	 */
 	public LinkedList<Snp> readFile(String fileName, int onda){
 		try {
 			File file = new File(fileName);
@@ -51,6 +57,11 @@ public class DaoSnp {
 		}		
 	}
 	
+	/**
+	 * Método que escreve no arquivo.
+	 * @param lista
+	 * @param fileWriterName
+	 */
 	public void writeFile(List<Snp> lista, String fileWriterName){
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileWriterName));
@@ -62,8 +73,11 @@ public class DaoSnp {
 				String line = new String();
 				line = snp.getNome() + "/t" + snp.getOnda() + "/t" + snp.getPosicao() + "/t" + snp.getMarcador1() + "/t" + snp.getMarcador2();
 				
-				//terminar de colocar as probalilidades para escrever no arquivo
-				
+				//iterator que roda as listas de probabilidades e escreve na linha
+				Iterator<Double> itProb = snp.getProbab().iterator();
+				while (itProb.hasNext()){
+					line += "/t" + itProb.next().toString();
+				}
 				bw.write(line);
 			}
 			bw.close();

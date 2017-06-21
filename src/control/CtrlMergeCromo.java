@@ -44,9 +44,9 @@ public class CtrlMergeCromo {
 			Snp snpBase = it.next();
 			if (snpBase.getNome() == snp.getNome()){
 				snpBase.setOnda(snpBase.getOnda()+ snp.getOnda());
-				Iterator<Double> itCompara = snp.getProbab().iterator();
+				Iterator<String> itCompara = snp.getProbab().iterator();
 				while (itCompara.hasNext()){
-					Double element = itCompara.next();
+					String element = itCompara.next();
 					snpBase.getProbab().add(element);
 				}
 				existenteNaBase = true;
@@ -70,16 +70,16 @@ public class CtrlMergeCromo {
 		}
 	}
 	
-	private List<Double> insereNA (List<Double> prob, int onda){
-		ArrayList<Double> novaProb = new ArrayList<Double>();
-		Iterator<Double> it;
+	private List<String> insereNA (List<String> prob, int onda){
+		ArrayList<String> novaProb = new ArrayList<String>();
+		Iterator<String> it;
 		if (onda == 2){
 			for (int i = 0 ; i < NA1 ; i++ ){
-				novaProb.add(999.99);
+				novaProb.add("NA");
 			}
 		}else{
 			for (int i = 0 ; i < NA2 ; i++ ){
-				novaProb.add(999.99);
+				novaProb.add("NA");
 			}
 		}
 		novaProb.addAll(prob);

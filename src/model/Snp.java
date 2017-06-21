@@ -9,7 +9,7 @@ public class Snp {
 	private String posicao;
 	private String marcador1;
 	private String marcador2;
-	private List<Double> probab;
+	private List<String> probab;
 	
 	public String getNome() {
 		return nome;
@@ -35,10 +35,10 @@ public class Snp {
 	public void setMarcador2(String marcador2) {
 		this.marcador2 = marcador2;
 	}
-	public List<Double> getProbab(){
+	public List<String> getProbab(){
 		return probab;
 	}
-	public void setProbab(List<Double> probab) {
+	public void setProbab(List<String> probab) {
 		this.probab = probab;
 	}
 	public int getOnda() {

@@ -47,9 +47,9 @@ public class DaoSnp {
 				String[] tabLine = new String[5000];
 				tabLine= line.split("\t");
 				int listSize = tabLine.length;
-				ArrayList<Double> prob = new ArrayList<>();
+				ArrayList<String> prob = new ArrayList<>();
 				for (int i=1 ; i < listSize ; i++){
-					prob.add(Double.parseDouble(tabLine[i]));
+					prob.add(tabLine[i]);
 					System.out.println(prob.get(i-1));
 				}
 				snp.setProbab(prob);
@@ -82,7 +82,7 @@ public class DaoSnp {
 				line = snp.getNome() + "/t" + snp.getOnda() + "/t" + snp.getPosicao() + "/t" + snp.getMarcador1() + "/t" + snp.getMarcador2();
 				
 				//iterator que roda as listas de probabilidades e escreve na linha
-				Iterator<Double> itProb = snp.getProbab().iterator();
+				Iterator<String> itProb = snp.getProbab().iterator();
 				while (itProb.hasNext()){
 					line += "/t" + itProb.next().toString();
 				}

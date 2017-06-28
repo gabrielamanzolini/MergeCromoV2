@@ -21,7 +21,7 @@ public class DaoSnp {
 	 * @param onda
 	 * @return LinkedList com os dados de um arquivo
 	 */
-	public LinkedList<Snp> readFile(String fileName, int onda){
+	public LinkedList<Snp> readFile(String fileName){
 		try {
 			File file = new File(fileName);
 			BufferedReader br = new BufferedReader(new FileReader(file));
@@ -31,26 +31,18 @@ public class DaoSnp {
 				String line = br.readLine();
 				
 				String[] sLine = new String[6];
-				sLine = line.split(" ");
+				sLine = line.split(";");
 				//atribuindo valores para o obj snp
 				Snp snp = new Snp();
-				snp.setOnda(onda);
+				snp.setOnda(Integer.parseInt(sLine[0]));
 				snp.setNome(sLine[1]);
-				System.out.println(snp.getNome());
 				snp.setPosicao(sLine[2]);
-				System.out.println(snp.getPosicao());
 				snp.setMarcador1(sLine[3]);
-				System.out.println(snp.getMarcador1());
 				snp.setMarcador2(sLine[4]);
-				System.out.println(snp.getMarcador2());
-				
-				String[] tabLine = new String[5000];
-				tabLine= line.split("\t");
-				int listSize = tabLine.length;
+
 				ArrayList<String> prob = new ArrayList<>();
-				for (int i=1 ; i < listSize ; i++){
-					prob.add(tabLine[i]);
-					System.out.println(prob.get(i-1));
+				for (int i=5 ; i < sLine.length ; i++){
+					prob.add(sLine[i]);
 				}
 				snp.setProbab(prob);
 				

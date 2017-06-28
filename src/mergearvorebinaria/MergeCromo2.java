@@ -15,14 +15,8 @@ import control.CtrlMergeCromo;
  */
 public class MergeCromo2 {
 	
-    public static void main(String[] args) throws IOException {
-     
-    	String[] file = new String[3]; 
-    	file[0]	= "/home/gabriela/Desktop/ListaSNP/Cromo/cromo22.csv";
-    	file[1] = "/home/gabriela/Desktop/ListaSNP/Cromo/bae2.cromo22.csv";
-    	file[2] = "/home/gabriela/Desktop/ListaSNP/Cromo/bae3.cromo22.csv";
-    	
-    	CtrlMergeCromo mcCntrl = new CtrlMergeCromo(file);
+    public static void main(String[] args) throws IOException {    	
+    	CtrlMergeCromo mcCntrl = new CtrlMergeCromo(args[0], args[1]);
     }  
 
 }              

@@ -20,16 +20,21 @@ public class CtrlMergeCromo {
 	int NA2 = 0;
 	
 	
-	public CtrlMergeCromo(String[] file) {
-		
+	public CtrlMergeCromo(String file, String outFile) {
+		carregaOnda1(file);
+		comparaBase();
 		DaoSnp dao = new DaoSnp();
-		base = dao.readFile(file[0], 1);
-		NA1 = base.get(0).getProbab().size();
-		comparaBase(file[1], 2, dao);
-		comparaBase(file[2], 3, dao);
-		String fileResult = "/home/gabriela/Desktop/ListaSNP/Cromo/mergedCromo22.csv";
-		dao.writeFile(base, fileResult);
+		dao.writeFile(base, outFile);
 	}	
+	
+	/**
+	 * Método que carrega a onda1 em memória
+	 * @param file
+	 */
+	private void carregaOnda1(String file){
+		DaoSnp dao = new DaoSnp();
+		base = dao.readFile(file);
+	}
 	
     /**
      * Método que compara se um SNP já está na base
@@ -55,35 +60,47 @@ public class CtrlMergeCromo {
 		return existenteNaBase;
 	}
 
-	private void comparaBase(String file, int onda, DaoSnp dao){
-		LinkedList<Snp> compBase = dao.readFile(file, onda);
-		
-		if (onda == 2)NA2 = compBase.get(0).getProbab().size();
-		
-		Iterator<Snp> it = compBase.iterator();
+	/**
+	 * Método utilizado para comparar a base.
+	 */
+	private void comparaBase(){
+		Iterator<Snp> it = base.iterator();
 		while (it.hasNext()){
 			Snp snp = it.next();
-			if (!existeNaBase(snp)){
-				snp.setProbab(insereNA(snp.getProbab(), onda));
+			if (snp.getPosicao()== it.next().getPosicao()){
+				
+				snp.setProbab(insereNA(snp.getProbab(), snp.getOnda()));
 				base.add(snp);
+			}else{
+				
 			}
 		}
 	}
 	
+	/**
+	 * Método para inserir "NA" nas probabilidades vazias.
+	 * @param prob
+	 * @param onda
+	 * @return Lista de Probabilidades com "NA" nos lugares necessários
+	 */
 	private List<String> insereNA (List<String> prob, int onda){
 		ArrayList<String> novaProb = new ArrayList<String>();
-		Iterator<String> it;
-		if (onda == 2){
+		Iterator<String> it;2
+		switch (onda) {
+		case 2:
 			for (int i = 0 ; i < NA1 ; i++ ){
 				novaProb.add("NA");
 			}
-		}else{
+			break;
+		case 3:
 			for (int i = 0 ; i < NA2 ; i++ ){
 				novaProb.add("NA");
 			}
+			break;
+		default:
+			break;
 		}
 		novaProb.addAll(prob);
-		
 		return novaProb;
 	}
 }
